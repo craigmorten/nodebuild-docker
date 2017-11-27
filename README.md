@@ -10,10 +10,12 @@ Build:
 docker build -t nodebuild-docker .
 ```
 
-Run with local script directory volume mounted:
+Run with local script directory volume mounted, and execute the command of swapping node version to argon:
 
 ```sh
-docker run -it --name nodebuild-docker \
+cmd="source /usr/local/nvm/nvm.sh; nvm install lts/argon"
+
+docker run -it --rm --name nodebuild-docker \
     -v $(pwd)/scripts:/opt/app/scripts \
-    nodebuild-docker
+    nodebuild-docker /bin/bash -c "${cmd}"
 ```
