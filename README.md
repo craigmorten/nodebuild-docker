@@ -14,6 +14,6 @@ Run with local script directory volume mounted:
 
 ```sh
 docker run -it --name nodebuild-docker \
-    -v "./scripts:/opt/app/scripts"
+    -v $(pwd)/scripts:/opt/app/scripts \
     nodebuild-docker
 ```
